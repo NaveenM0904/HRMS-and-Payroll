@@ -19,12 +19,9 @@ table 50000 "HRMS Employee"
         field(1; "No."; Code[20])
 
         {
-
             Caption = 'Employee No.';
 
             NotBlank = true;
-
-
 
             trigger OnValidate()
 
@@ -43,25 +40,14 @@ table 50000 "HRMS Employee"
             end;
 
         }
-
-
-
         field(2; "First Name"; Text[50])
-
         {
-
             Caption = 'First Name';
-
             NotBlank = true;
-
         }
 
-
-
         field(3; "Last Name"; Text[50])
-
         {
-
             Caption = 'Last Name';
 
             NotBlank = true;
