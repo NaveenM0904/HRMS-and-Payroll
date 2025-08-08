@@ -37,7 +37,6 @@ table 50010 "HRMS Salary Structure"
         }
 
 
-
         field(3; "Grade Code"; Code[20])
 
         {
