@@ -34,7 +34,7 @@ table 50000 "HRMS Employee"
 
                     HRMSSetup.Get();
 
-                    NoSeriesMgt.TestManual(HRMSSetup."Employee Nos.");
+                    NoSeries.TestManual(HRMSSetup."Employee Nos.");
 
                     "No. Series" := '';
 
@@ -382,7 +382,8 @@ table 50000 "HRMS Employee"
 
             HRMSSetup.TestField("Employee Nos.");
 
-            NoSeriesMgt.InitSeries(HRMSSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            // NoSeriesMgt.InitSeries(HRMSSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            "No." := NoSeries.GetNextNo(HRMSSetup."Employee Nos.", WorkDate, true);
 
         end;
 
@@ -424,6 +425,7 @@ table 50000 "HRMS Employee"
         HRMSSetup: Record "HRMS Setup";
 
         NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeries: Codeunit "No. Series";
 
         Text001: Label 'You cannot rename a %1.';
 

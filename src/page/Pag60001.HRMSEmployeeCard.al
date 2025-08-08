@@ -3,7 +3,8 @@ page 60001 "HRMS Employee Card"
 {
     Caption = 'HRMS Employee Card';
     PageType = Card;
-    UsageCategory = Administration;
+    ApplicationArea = All;
+    UsageCategory = Lists;
     SourceTable = "HRMS Employee";
     layout
 
@@ -21,13 +22,13 @@ page 60001 "HRMS Employee Card"
                 {
 
                     ApplicationArea = All;
-                    trigger OnAssistEdit()
+                    // trigger OnAssistEdit()
 
-                    begin
-                        // if Rec.AssistEdit(xRec) then
-                        CurrPage.Update();
+                    // begin
+                    //     if Rec.AssistEdit(xRec) then
+                    //         CurrPage.Update();
 
-                    end;
+                    // end;
 
                 }
 
