@@ -83,6 +83,11 @@ table 50001 "HRMS Department"
             Caption = 'Blocked';
 
         }
+        field(21; Description; Text[100])
+        {
+            Caption = 'Description';
+            NotBlank = true;
+        }
 
     }
 

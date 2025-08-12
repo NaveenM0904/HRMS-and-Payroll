@@ -7,6 +7,7 @@ page 60010 "HRMS Payroll Processing"
     PageType = Card;
 
     SourceTable = "HRMS Payroll Header";
+    UsageCategory = Administration;
 
 
 

@@ -5,6 +5,7 @@ page 60000 "HRMS HR Manager Role Center"
     Caption = 'HR Manager';
 
     PageType = RoleCenter;
+    UsageCategory = Administration;
 
 
 

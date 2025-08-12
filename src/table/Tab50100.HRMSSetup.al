@@ -1,123 +1,87 @@
+/// <summary>
+/// Table HRMS Setup (ID 50010)
+/// Setup table for HRMS configuration
+/// </summary>
 table 50100 "HRMS Setup"
-
 {
-
+    DataClassification = CustomerContent;
     Caption = 'HRMS Setup';
 
-
-
     fields
-
     {
-
         field(1; "Primary Key"; Code[10])
-
         {
-
             Caption = 'Primary Key';
-
         }
-
-
 
         field(10; "Employee Nos."; Code[20])
-
         {
-
             Caption = 'Employee Nos.';
-
             TableRelation = "No. Series";
-
         }
 
-
-
-        field(20; "Payroll Journal Template"; Code[10])
-
+        field(11; "Department Nos."; Code[20])
         {
-
-            Caption = 'Payroll Journal Template';
-
-            TableRelation = "Gen. Journal Template";
-
+            Caption = 'Department Nos.';
+            TableRelation = "No. Series";
         }
 
-
-
-        field(21; "Payroll Journal Batch"; Code[10])
-
+        field(12; "Position Nos."; Code[20])
         {
-
-            Caption = 'Payroll Journal Batch';
-
-            TableRelation = "Gen. Journal Batch".Name WHERE("Journal Template Name" = FIELD("Payroll Journal Template"));
-
+            Caption = 'Position Nos.';
+            TableRelation = "No. Series";
         }
 
-
-
-        field(30; "Salary Payable Account"; Code[20])
-
+        field(13; "Leave Application Nos."; Code[20])
         {
-
-            Caption = 'Salary Payable Account';
-
-            TableRelation = "G/L Account";
-
+            Caption = 'Leave Application Nos.';
+            TableRelation = "No. Series";
         }
 
-
-
-        field(31; "PF Payable Account"; Code[20])
-
+        field(14; "Payroll Batch Nos."; Code[20])
         {
-
-            Caption = 'PF Payable Account';
-
-            TableRelation = "G/L Account";
-
+            Caption = 'Payroll Batch Nos.';
+            TableRelation = "No. Series";
         }
 
-
-
-        field(32; "ESI Payable Account"; Code[20])
-
+        field(20; "Default Leave Days"; Integer)
         {
-
-            Caption = 'ESI Payable Account';
-
-            TableRelation = "G/L Account";
-
+            Caption = 'Default Leave Days';
+            MinValue = 0;
         }
 
-
-
-        field(33; "TDS Payable Account"; Code[20])
-
+        field(21; "PF Rate %"; Decimal)
         {
-
-            Caption = 'TDS Payable Account';
-
-            TableRelation = "G/L Account";
-
+            Caption = 'PF Rate %';
+            DecimalPlaces = 2 : 2;
+            MinValue = 0;
         }
 
+        field(22; "ESI Rate %"; Decimal)
+        {
+            Caption = 'ESI Rate %';
+            DecimalPlaces = 2 : 2;
+            MinValue = 0;
+        }
+
+        field(23; "Professional Tax"; Decimal)
+        {
+            Caption = 'Professional Tax';
+            DecimalPlaces = 2 : 2;
+            MinValue = 0;
+        }
     }
-
-
 
     keys
-
     {
-
         key(Key1; "Primary Key")
-
         {
-
             Clustered = true;
-
         }
-
     }
 
+    trigger OnInsert()
+    begin
+        "Primary Key" := '';
+    end;
 }
