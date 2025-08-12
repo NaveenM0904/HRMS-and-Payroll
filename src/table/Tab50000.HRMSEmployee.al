@@ -288,11 +288,17 @@ table 50000 "HRMS Employee"
 
         }
 
+
+
         field(501; "PF No."; Code[20])
 
         {
+
             Caption = 'PF No.';
+
         }
+
+
 
         field(502; "ESI No."; Code[20])
 
@@ -324,7 +330,11 @@ table 50000 "HRMS Employee"
             Caption = 'Modified By';
         }
 
+
+
     }
+
+
 
     keys
 
@@ -346,6 +356,8 @@ table 50000 "HRMS Employee"
 
     }
 
+
+
     trigger OnInsert()
 
     begin
@@ -361,11 +373,15 @@ table 50000 "HRMS Employee"
 
         end;
 
+
+
         "Creation Date" := Today;
 
         "Created By" := UserId;
 
     end;
+
+
 
     trigger OnModify()
 
@@ -378,6 +394,8 @@ table 50000 "HRMS Employee"
 
     end;
 
+
+
     trigger OnRename()
 
     begin
@@ -385,6 +403,8 @@ table 50000 "HRMS Employee"
         Error(Text001, TableCaption);
 
     end;
+
+
 
     var
 
