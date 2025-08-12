@@ -113,18 +113,18 @@ page 60015 "HRMS Employee List"
             }
         }
 
-        area(Processing)
-        {
-            action(NewEmployee)
-            {
-                Caption = 'New Employee';
-                Image = NewCustomer;
-                ApplicationArea = All;
-                RunObject = Page "HRMS Employee Card";
-                RunPageMode = Create;
-                ToolTip = 'Create a new employee';
-            }
-        }
+        // area(Processing)
+        // {
+        //     // action(NewEmployee)
+        //     // {
+        //     //     Caption = 'New Employee';
+        //     //     Image = NewCustomer;
+        //     //     ApplicationArea = All;
+        //     //     RunObject = Page "HRMS Employee Card";
+        //     //     RunPageMode = Create;
+        //     //     ToolTip = 'Create a new employee';
+        //     // }
+        // }
 
         area(Reporting)
         {
@@ -140,14 +140,14 @@ page 60015 "HRMS Employee List"
 
         area(Promoted)
         {
-            group(Category_New)
-            {
-                Caption = 'New';
+            // group(Category_New)
+            // {
+            //     Caption = 'New';
 
-                actionref(NewEmployee_Promoted; NewEmployee)
-                {
-                }
-            }
+            //     actionref(NewEmployee_Promoted; NewEmployee)
+            //     {
+            //     }
+            // }
 
             group(Category_Report)
             {

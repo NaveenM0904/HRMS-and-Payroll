@@ -1,114 +1,55 @@
 codeunit 80011 "HRMS Payroll Calculation"
-
 {
-
     /// <summary> 
-
     /// Main payroll calculation procedure 
-
     /// </summary> 
-
     /// <param name="PayrollHeader">Payroll Header Record</param> 
 
     procedure CalculatePayroll(var PayrollHeader: Record "HRMS Payroll Header")
-
     var
-
         Employee: Record "HRMS Employee";
-
         PayrollLine: Record "HRMS Payroll Line";
-
         SalaryStructure: Record "HRMS Salary Structure";
-
     // SalaryStructureLine: Record "HRMS Salary Structure Line";
-
     // AttendanceData: Record "HRMS Attendance";
-
     // PayrollCalculationMgt: Codeunit "HRMS Payroll Calc Management";
-
     begin
-
         // Validate payroll header 
-
         PayrollHeader.TestField("Period Start Date");
-
         PayrollHeader.TestField("Period End Date");
-
-
-
         // Clear existing payroll lines 
-
         PayrollLine.SetRange("Payroll Period", PayrollHeader."Payroll Period");
-
         PayrollLine.DeleteAll();
-
-
-
         // Process each active employee 
-
         Employee.SetRange(Status, Employee.Status::Active);
-
         Employee.SetFilter("Employment Date", '<=%1', PayrollHeader."Period End Date");
-
-
-
         if Employee.FindSet() then
             repeat
-
                 CalculateEmployeePayroll(PayrollHeader, Employee);
 
             until Employee.Next() = 0;
-
-
-
         // Update payroll summary 
-
         //UpdatePayrollSummary(PayrollHeader);
-
-
-
         // Update status 
-
         PayrollHeader.Status := PayrollHeader.Status::"In Progress";
-
         PayrollHeader."Processed Date" := Today;
-
         PayrollHeader."Processed By" := UserId;
-
         PayrollHeader.Modify();
-
     end;
-
-
-
     /// <summary> 
-
     /// Calculate payroll for individual employee 
-
     /// </summary> 
-
     local procedure CalculateEmployeePayroll(PayrollHeader: Record "HRMS Payroll Header"; Employee: Record "HRMS Employee")
-
     var
-
         SalaryStructure: Record "HRMS Salary Structure";
-
         //SalaryStructureLine: Record "HRMS Salary Structure Line";
-
         PayrollLine: Record "HRMS Payroll Line";
-
         AttendanceDays: Decimal;
-
         WorkingDays: Decimal;
-
         BasicSalary: Decimal;
-
         GrossSalary: Decimal;
-
     begin
-
         // Get employee salary structure 
-
         if Employee."Salary Structure Code" = '' then
             exit;
 

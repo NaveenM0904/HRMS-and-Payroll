@@ -1,7 +1,6 @@
 
 codeunit 80016 "HRMS Management"
 {
-
     procedure CalculateLeaveBalance(EmployeeNo: Code[20]): Decimal
     var
         Employee: Record "HRMS Employee";

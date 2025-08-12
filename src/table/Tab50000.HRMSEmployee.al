@@ -109,14 +109,14 @@ table 50000 "HRMS Employee"
         field(30; "Manager Employee No."; Code[20])
         {
             Caption = 'Manager Employee No.';
-            TableRelation = "HRMS Employee"."No.";
+            TableRelation = "Employee"."No.";
 
             trigger OnValidate()
             var
-                Employee: Record "HRMS Employee";
+                Employee: Record "Employee";
             begin
                 if Employee.Get("Manager Employee No.") then
-                    "Manager Name" := Employee."Full Name"
+                    "Manager Name" := Employee."First Name" + ' ' + Employee."Last Name"
                 else
                     "Manager Name" := '';
             end;

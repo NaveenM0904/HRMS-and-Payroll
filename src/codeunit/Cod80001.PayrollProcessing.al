@@ -1,7 +1,6 @@
 
 codeunit 80001 "Payroll Processing"
 {
-
     procedure ProcessMonthlyPayroll(PayrollMonth: Integer; PayrollYear: Integer)
     var
         Employee: Record "HRMS Employee";
