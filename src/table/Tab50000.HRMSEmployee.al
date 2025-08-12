@@ -1,7 +1,4 @@
-/// <summary>
-/// Table HRMS Employee (ID 50000)
-/// Master table for employees
-/// </summary>
+
 table 50000 "HRMS Employee"
 {
     DataClassification = CustomerContent;
@@ -112,7 +109,7 @@ table 50000 "HRMS Employee"
         field(30; "Manager Employee No."; Code[20])
         {
             Caption = 'Manager Employee No.';
-            TableRelation = "HRMS Employee";
+            TableRelation = "HRMS Employee"."No.";
 
             trigger OnValidate()
             var
@@ -304,7 +301,8 @@ table 50000 "HRMS Employee"
         if "No." = '' then begin
             HRMSSetup.Get();
             HRMSSetup.TestField("Employee Nos.");
-            NoSeriesMgt.InitSeries(HRMSSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            "No." := NoSeriesMgt.GetNextNo(HRMSSetup."Employee Nos.", WorkDate, true);
+            // NoSeriesMgt.InitSeries(HRMSSetup."Employee Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
 
         UpdateFullName();
@@ -331,6 +329,6 @@ table 50000 "HRMS Employee"
 
     var
         HRMSSetup: Record "HRMS Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
         Text001: Label 'You cannot rename a %1.';
 }

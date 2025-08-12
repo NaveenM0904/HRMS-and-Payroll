@@ -19,11 +19,35 @@ page 60002 "HRMS Department Card"
                     ToolTip = 'Specifies the department code';
                 }
 
-                field(Name; Rec.Name) { ApplicationArea = All; }
-                field("Department Head"; Rec."Department Head") { ApplicationArea = All; }
-                field("Parent Department"; Rec."Parent Department") { ApplicationArea = All; }
-                field("Cost Center Code"; Rec."Cost Center Code") { ApplicationArea = All; }
-                field(Blocked; Rec.Blocked) { ApplicationArea = All; }
+                field(Description; Rec.Description)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the department description';
+                }
+
+                field("Manager Employee No."; Rec."Manager Employee No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the manager employee number';
+                }
+
+                field("Manager Name"; Rec."Manager Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the manager name';
+                }
+
+                field(Active; Rec.Active)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies if the department is active';
+                }
+
+                field("No. of Employees"; Rec."No. of Employees")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the number of employees in the department';
+                }
             }
         }
 
@@ -55,8 +79,8 @@ page 60002 "HRMS Department Card"
                     Caption = 'Employees';
                     Image = ResourceGroup;
                     ApplicationArea = All;
-                    RunObject = Page "Employee List";
-                    // RunPageLink = "Department Code" = field("Code");
+                    RunObject = Page "HRMS Employee List";
+                    RunPageLink = "Department Code" = field("Code");
                     ToolTip = 'View employees in this department';
                 }
 
@@ -65,8 +89,8 @@ page 60002 "HRMS Department Card"
                     Caption = 'Positions';
                     Image = Job;
                     ApplicationArea = All;
-                    // RunObject = Page "HRMS Position List";
-                    // RunPageLink = "Department Code" = field("Code");
+                    RunObject = Page "HRMS Position List";
+                    RunPageLink = "Department Code" = field("Code");
                     ToolTip = 'View positions in this department';
                 }
             }

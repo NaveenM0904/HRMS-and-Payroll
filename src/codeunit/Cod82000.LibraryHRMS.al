@@ -48,9 +48,9 @@ codeunit 82000 "Library - HRMS"
 
         Department.Init();
 
-        //Department.Code := LibraryUtility.GenerateRandomCode(Department.FieldNo(Code), DATABASE::"HRMS Department");
+        // Department.Code := LibraryUtility.GenerateRandomCode(Department.FieldNo(Code), DATABASE::"HRMS Department");
 
-        Department.Name := 'Test Department';
+        // Department.Name := 'Test Department';
 
         Department.Insert();
 

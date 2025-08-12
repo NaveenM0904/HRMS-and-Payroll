@@ -1,7 +1,4 @@
-/// <summary>
-/// Page HRMS Department List (ID 60003)
-/// List page for departments
-/// </summary>
+
 page 60003 "HRMS Department List"
 {
     PageType = List;
@@ -23,15 +20,37 @@ page 60003 "HRMS Department List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the department code';
                 }
-                field(Name; Rec.Name) { ApplicationArea = All; }
-                field("Department Head"; Rec."Department Head") { ApplicationArea = All; }
-                field("Parent Department"; Rec."Parent Department") { ApplicationArea = All; }
-                field("Cost Center Code"; Rec."Cost Center Code") { ApplicationArea = All; }
-                field(Blocked; Rec.Blocked) { ApplicationArea = All; }
 
+                field(Description; Rec.Description)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the department description';
+                }
+
+                field("Manager Employee No."; Rec."Manager Employee No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the manager employee number';
+                }
+
+                field("Manager Name"; Rec."Manager Name")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the manager name';
+                }
+
+                field("No. of Employees"; Rec."No. of Employees")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the number of employees';
+                }
+
+                field(Active; Rec.Active)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies if the department is active';
+                }
             }
-
-
         }
     }
 

@@ -1,7 +1,4 @@
-/// <summary>
-/// Page HRMS Employee Card (ID 60000)
-/// Card page for employee master data
-/// </summary>
+
 page 60001 "HRMS Employee Card"
 {
     PageType = Card;
@@ -279,8 +276,8 @@ page 60001 "HRMS Employee Card"
                     Caption = 'Leave Applications';
                     Image = Absence;
                     ApplicationArea = All;
-                    // RunObject = Page "HRMS Leave Application List";
-                    // RunPageLink = "Employee No." = field("No.");
+                    RunObject = Page "HRMS Leave Application List";
+                    RunPageLink = "Employee No." = field("No.");
                     ToolTip = 'View leave applications for this employee';
                 }
 
@@ -308,15 +305,15 @@ page 60001 "HRMS Employee Card"
                 trigger OnAction()
                 var
                     LeaveApplication: Record "HRMS Leave Application";
-                // LeaveApplicationCard: Page "HRMS Leave Application Card";
+                    LeaveApplicationCard: Page "HRMS Leave Application Card";
                 begin
                     LeaveApplication.Init();
                     LeaveApplication."Employee No." := Rec."No.";
                     LeaveApplication.Validate("Employee No.");
                     LeaveApplication.Insert(true);
 
-                    // LeaveApplicationCard.SetRecord(LeaveApplication);
-                    // LeaveApplicationCard.Run();
+                    LeaveApplicationCard.SetRecord(LeaveApplication);
+                    LeaveApplicationCard.Run();
                 end;
             }
         }

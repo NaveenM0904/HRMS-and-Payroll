@@ -176,7 +176,8 @@ table 50005 "HRMS Leave Application"
         if "Application No." = '' then begin
             HRMSSetup.Get();
             HRMSSetup.TestField("Leave Application Nos.");
-            NoSeriesMgt.InitSeries(HRMSSetup."Leave Application Nos.", xRec."No. Series", 0D, "Application No.", "No. Series");
+            "Application No." := NoSeriesMgt.GetNextNo(HRMSSetup."Employee Nos.", WorkDate, true);
+            // NoSeriesMgt.InitSeries(HRMSSetup."Leave Application Nos.", xRec."No. Series", 0D, "Application No.", "No. Series");
         end;
 
         "Application Date" := Today;
@@ -210,6 +211,6 @@ table 50005 "HRMS Leave Application"
 
     var
         HRMSSetup: Record "HRMS Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
         Text001: Label 'To Date cannot be earlier than From Date.';
 }

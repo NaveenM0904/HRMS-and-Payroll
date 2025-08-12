@@ -1,7 +1,4 @@
-/// <summary>
-/// Page HRMS Setup Card (ID 60008)
-/// Setup page for HRMS configuration
-/// </summary>
+
 page 60008 "HRMS Setup Card"
 {
     PageType = Card;

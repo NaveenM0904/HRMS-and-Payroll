@@ -180,11 +180,11 @@ page 60010 "HRMS Payroll Processing"
 
                 var
 
-                    PayrollProcessing: Codeunit "HRMS Payroll Processing";
+                    PayrollProcessing: Codeunit "Payroll Processing";
 
                 begin
 
-                    PayrollProcessing.ProcessPayroll(Rec);
+                    // PayrollProcessing.ProcessMonthlyPayroll(Rec);
 
                     CurrPage.Update();
 

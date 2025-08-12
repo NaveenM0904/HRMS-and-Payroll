@@ -1,7 +1,4 @@
-/// <summary>
-/// Page HRMS Leave Application Card (ID 60009)
-/// Card page for leave applications
-/// </summary>
+
 page 60009 "HRMS Leave Application Card"
 {
     PageType = Card;

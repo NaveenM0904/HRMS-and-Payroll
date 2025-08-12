@@ -1,7 +1,4 @@
-/// <summary>
-/// Table HRMS Setup (ID 50010)
-/// Setup table for HRMS configuration
-/// </summary>
+
 table 50100 "HRMS Setup"
 {
     DataClassification = CustomerContent;
