@@ -29,7 +29,7 @@ table 50005 "HRMS Leave Application"
         field(2; "Employee No."; Code[20])
         {
             Caption = 'Employee No.';
-            TableRelation = "HRMS Employee";
+            TableRelation = "HRMS Employee"."No.";
             NotBlank = true;
 
             trigger OnValidate()

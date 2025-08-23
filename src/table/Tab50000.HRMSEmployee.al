@@ -10,15 +10,31 @@ table 50000 "HRMS Employee"
     {
         field(1; "No."; Code[20])
         {
+            // Caption = 'Employee No.';
+            // NotBlank = true;
+
+            // trigger OnValidate()
+            // begin
+            //     if "No." <> xRec."No." then begin
+            //         HRMSSetup.Get();
+            //         NoSeriesMgt.TestManual(HRMSSetup."Employee Nos.");
+            //         "No. Series" := '';
+            //     end;
+            // end;
             Caption = 'Employee No.';
+            TableRelation = "Employee"."No.";
             NotBlank = true;
 
             trigger OnValidate()
+            var
+                Employee: Record "Employee";
             begin
-                if "No." <> xRec."No." then begin
-                    HRMSSetup.Get();
-                    NoSeriesMgt.TestManual(HRMSSetup."Employee Nos.");
-                    "No. Series" := '';
+                if Employee.Get("No.") then begin
+                    "First Name" := Employee."First Name";
+                    "Last Name" := Employee."Last Name";
+                end else begin
+                    "First Name" := '';
+                    "Last Name" := '';
                 end;
             end;
         }
@@ -208,6 +224,10 @@ table 50000 "HRMS Employee"
         {
             Caption = 'Gross Salary';
             DecimalPlaces = 2 : 2;
+            trigger OnValidate()
+            begin
+                HRMSMangment.CalculateGrossSalary("No.", "Basic Salary");
+            end;
         }
 
         // Statutory Information
@@ -331,4 +351,5 @@ table 50000 "HRMS Employee"
         HRMSSetup: Record "HRMS Setup";
         NoSeriesMgt: Codeunit "No. Series";
         Text001: Label 'You cannot rename a %1.';
+        HRMSMangment: Codeunit "HRMS Management";
 }

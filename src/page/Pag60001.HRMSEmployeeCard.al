@@ -3,7 +3,7 @@ page 60001 "HRMS Employee Card"
 {
     PageType = Card;
     SourceTable = "HRMS Employee";
-    Caption = 'Employee Card';
+    Caption = 'HRMS Employee Card';
 
     layout
     {
@@ -342,4 +342,6 @@ page 60001 "HRMS Employee Card"
             }
         }
     }
+    var
+        HrmsMangment: Codeunit "HRMS Management";
 }

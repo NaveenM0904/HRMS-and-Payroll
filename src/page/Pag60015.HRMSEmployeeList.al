@@ -3,7 +3,7 @@ page 60015 "HRMS Employee List"
 {
     PageType = List;
     SourceTable = "HRMS Employee";
-    Caption = 'Employee List';
+    Caption = 'HRMS Employee List';
     CardPageId = "HRMS Employee Card";
     Editable = false;
     ApplicationArea = All;
